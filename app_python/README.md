@@ -3,6 +3,8 @@
 This app is a simple Flask application that displays the current time in Moscow.
 The Black formatter is used (by VS Code) to ensure that the code is formatted correctly.
 Flask was chosen as the web framework because it is very simple to use and has a very simple API.
+It helps bootstrap the app quickly and is very easy to extend.
+It also does not compromise on powerfulness and increases the readability of the code and productivity of the developer.
 
 ## Installing
 
