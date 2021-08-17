@@ -1,2 +1,11 @@
 # InnoDevOpsCourse
-The project/labs for the DevOps Engineering course at Innopolis University (F21)
+
+This repo holds the project and the labs for the DevOps Engineering course at Innopolis University (Fall 2021 semester).
+The [.vscode](.vscode) folder contains the configuration and recommended extensions for the Visual Studio Code editor, in addition to the [Prettier configuration](.prettierrc) to ensure a consistent code style.
+
+## Subprojects
+
+### Python
+
+In the [app_python](app_python) folder you will find the Python application that is used in the labs.
+More details about it can be found in the [app_python](app_python) folder.
