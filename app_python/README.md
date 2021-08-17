@@ -2,6 +2,7 @@
 
 This app is a simple Flask application that displays the current time in Moscow.
 The Black formatter is used (by VS Code) to ensure that the code is formatted correctly.
+Flask was chosen as the web framework because it is very simple to use and has a very simple API.
 
 ## Installing
 
@@ -37,5 +38,5 @@ or use the provided Dockerfile:
 
 ```
 docker build -t python-app .
-docker run -p 5000:5000 python-app
+docker run -d -p 5000:5000 python-app
 ```
