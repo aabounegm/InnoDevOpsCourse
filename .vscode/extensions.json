@@ -2,6 +2,8 @@
 	"recommendations": [
 		"esbenp.prettier-vscode",
 		"ms-python.python",
-		"ms-python.vscode-pylance"
+		"ms-python.vscode-pylance",
+		"octref.vetur",
+		"dbaeumer.vscode-eslint"
 	]
 }
