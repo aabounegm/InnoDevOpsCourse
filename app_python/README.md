@@ -36,7 +36,7 @@ or using the `flask` command:
 flask run
 ```
 
-or use the provided Dockerfile:
+or use the provided Dockerfile to run for production:
 
 ```
 docker build -t python-app .
