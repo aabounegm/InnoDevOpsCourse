@@ -9,6 +9,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the main code
 COPY . /app
 
+EXPOSE 5000
+
 # Configure environement variables
 ENV FLASK_ENV=development
 
