@@ -2,6 +2,8 @@
 
 The following is a list of best practices for Python that are being followed in this project:
 
+## Coding
+
 - Follow the [PEP 8](https://www.python.org/dev/peps/pep-0008/) coding style guide.
 - Use a linter/formatter such as [black](https://pypi.python.org/pypi/black) to enforce consistent, PEP8-conforming styles.
 - Follow The Zen of Python (found by writing `import this` in the Python REPL)
@@ -20,3 +22,25 @@ The following is a list of best practices for Python that are being followed in 
   - Third-party library imports
   - Local application/library specific imports
 - Dockerize the application.
+
+## Testing
+
+- Use [pytest](https://docs.pytest.org/en/latest/) to test the application.
+- Create a `tests` directory and a `test_` file for each test, mimicking the directory structure of the application.
+- Follow the [Given-When-Then](https://martinfowler.com/bliki/GivenWhenThen.html) style of writing tests.
+- Separate between unit and functional tests.
+- Use fixtures to provide common setup and teardown code.
+- Try to maximize test code coverage to ensure that the application is tested thoroughly.
+- Do not modify the application code in tests.
+- Do not modify fixtures in other fixtures.
+- Prefer `tmpdir` over global test artifacts
+- Use yield fixtures.
+- Parametrize when asserting the same behavior with various inputs and expected outputs (do not depend on global state).
+- Never manually create `Response` objects for tests.
+- Try to use Test-Driven Development (TDD).
+
+### References
+
+- https://flask.palletsprojects.com/en/2.0.x/testing/
+- https://testdriven.io/blog/flask-pytest/
+- https://www.nerdwallet.com/blog/engineering/5-pytest-best-practices/

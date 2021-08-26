@@ -42,3 +42,13 @@ or use the provided Dockerfile to run for production:
 docker build -t python-app .
 docker run -d -p 5000:5000 python-app
 ```
+
+## Testing
+
+The unit tests use the `pytest` library to define test cases.
+First, run `pip install -r requirements-dev.txt` to install the test (and other dev) dependencies.
+Then, run the tests using the entrypoint:
+
+```
+python run_tests.py
+```
