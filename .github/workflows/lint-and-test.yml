@@ -34,7 +34,6 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Install dependencies 🧰
-        if: steps.cache.outputs.cache-hit != 'true'
         run: pip install -r requirements-dev.txt -r requirements.txt
 
       - name: Lint 🔬
