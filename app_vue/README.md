@@ -1,5 +1,7 @@
 # Vue 3 application
 
+![Build](https://github.com/aabounegm/devops/actions/workflows/publish-vue-app.yml/badge.svg)
+
 ## Setup
 
 To install dependencies, run:
