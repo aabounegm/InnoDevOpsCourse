@@ -1,4 +1,4 @@
-name: Lint and test on push
+name: Lint and test
 
 on:
   push:
@@ -35,7 +35,7 @@ jobs:
 
       - name: Install dependencies 🧰
         if: steps.cache.outputs.cache-hit != 'true'
-        run: pip install -r requirements-dev.txt
+        run: pip install -r requirements-dev.txt -r requirements.txt
 
       - name: Lint 🔬
         run: black --check .

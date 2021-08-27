@@ -1,5 +1,8 @@
 # Python app
 
+![Docker build](https://github.com/aabounegm/devops/actions/workflows/docker.yml/badge.svg)
+![Lints and unit tests](https://github.com/aabounegm/devops/actions/workflows/lint-and-test.yml/badge.svg)
+
 This app is a simple Flask application that displays the current time in Moscow.
 The Black formatter is used (by VS Code) to ensure that the code is formatted correctly.
 Flask was chosen as the web framework because it is very simple to use and has a very simple API.
