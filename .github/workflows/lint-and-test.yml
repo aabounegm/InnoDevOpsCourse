@@ -1,0 +1,44 @@
+name: Lint and test on push
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "app_python/**"
+
+jobs:
+  lint-and-test:
+    name: Lint and test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app_python
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Setup Python 3.9 📦
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies 🧰
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: pip install -r requirements-dev.txt
+
+      - name: Lint 🔬
+        run: black --check .
+
+      - name: Test 🔬
+        run: python run_tests.py
