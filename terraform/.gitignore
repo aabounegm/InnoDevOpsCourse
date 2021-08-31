@@ -1,5 +1,6 @@
 # Cache and state files used by Terraform
 .terraform
+*.tfstate
 *.tfstate.backup
 out.plan
 
