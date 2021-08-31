@@ -1,0 +1,7 @@
+# Cache and state files used by Terraform
+.terraform
+*.tfstate.backup
+out.plan
+
+# The actual Terraform executable, to avoid modifying the PATH variable
+terraform.exe
