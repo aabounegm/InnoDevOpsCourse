@@ -3,6 +3,6 @@
   become: true
 
   roles:
-    - role: docker
+    - role: setup-docker
       vars:
         docker_users: [ubuntu]
