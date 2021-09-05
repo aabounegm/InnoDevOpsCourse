@@ -1,0 +1,30 @@
+---
+- name: Install pip3.
+  package:
+    name: "python3-pip"
+    state: present
+
+- name: Install Docker packages for Python
+  pip:
+    name:
+      - docker==5.0.2
+      - docker-compose==1.29.2
+    state: present
+
+- name: Create folder for application
+  file:
+    path: /opt/app_python/
+    state: directory
+    mode: 0755
+
+- name: Copy Docker-compose file
+  copy:
+    src: ../files/docker-compose.yml
+    dest: /opt/app_python/docker-compose.yml
+    mode: u=rw,g=r,o=r
+
+- name: Run docker-compose
+  community.docker.docker_compose:
+    pull: true
+    project_src: /opt/python_app/
+    state: present

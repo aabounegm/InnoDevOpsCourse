@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  flask_app:
+    image: aabounegm/devops_app_python:latest
+    ports:
+      - "80:5000"

@@ -6,3 +6,4 @@
     - role: setup-docker
       vars:
         docker_users: [ubuntu]
+    - role: deploy-app
