@@ -11,6 +11,10 @@ Prettier is used for Markdown and Dockerfile files, while Black is used for Pyth
 In the [app_python](app_python) folder you will find the Python application that is used in the labs.
 More details about it can be found in the [app_python](app_python) folder.
 
+### Vue
+
+The other project is a Vue.js application created from template and resides in [app_vue](app_vue).
+
 ## Docker
 
 The projects use [Docker](https://www.docker.com/) to run the application in a container.
