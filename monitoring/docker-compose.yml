@@ -1,16 +1,24 @@
 version: "3.8"
 
+x-logging-config: &logging
+  logging:
+    driver: json-file
+    options:
+      tag: "{{.ImageName}}|{{.Name}}"
+  networks:
+    - loki
+
 services:
-  my_app:
+  my_python_app:
     image: aabounegm/devops_app_python
-    logging:
-      driver: json-file
-      options:
-        tag: "{{.ImageName}}|{{.Name}}"
-    networks:
-      - loki
     ports:
       - 5000:5000
+    <<: *logging
+  my_vue_app:
+    image: aabounegm/devops_app_vue
+    ports:
+      - 8080:8080
+    <<: *logging
   loki:
     image: grafana/loki:2.3.0
     networks:

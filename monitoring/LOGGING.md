@@ -42,3 +42,5 @@ Then, go to the "Explore" tab to see the logs.
   ![](./images/Loki%20Added%20and%20Tested.png)
 - Grafana dashboard:
   ![](./images/Grafana%20logs.png)
+- Extra app logs:
+  ![](./images/Vue%20app%20logs.png)
