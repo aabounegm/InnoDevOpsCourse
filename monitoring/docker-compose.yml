@@ -21,25 +21,22 @@ services:
     <<: *logging
   loki:
     image: grafana/loki:2.3.0
-    networks:
-      - loki
     ports:
       - 3100:3100
+    <<: *logging
   grafana:
     image: grafana/grafana:8.1.3
-    networks:
-      - loki
     ports:
       - 3000:3000
+    <<: *logging
   promtail:
     image: grafana/promtail:2.3.0
-    networks:
-      - loki
     ports:
       - 9080:9080
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - ./promtail-config.yml:/etc/promtail/config.yml:ro
+    <<: *logging
 
 networks:
   loki:
