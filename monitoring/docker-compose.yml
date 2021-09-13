@@ -5,10 +5,15 @@ x-logging-config: &logging
     driver: json-file
     options:
       tag: "{{.ImageName}}|{{.Name}}"
-      max-size: "100m"
-      max-file: 3
+      # Note: adding the log rotation options breaks everything on Windows.
+      # max-size: "100m"
+      # max-file: 3
   networks:
     - loki
+
+x-resources-limits: &resources
+  cpu: 0.5
+  mem_limit: "512M"
 
 services:
   my_python_app:
@@ -16,21 +21,25 @@ services:
     ports:
       - 5000:5000
     <<: *logging
+    <<: *resources
   my_vue_app:
     image: aabounegm/devops_app_vue
     ports:
       - 8080:8080
     <<: *logging
+    <<: *resources
   loki:
     image: grafana/loki:2.3.0
     ports:
       - 3100:3100
     <<: *logging
+    <<: *resources
   grafana:
     image: grafana/grafana:8.1.3
     ports:
       - 3000:3000
     <<: *logging
+    <<: *resources
   promtail:
     image: grafana/promtail:2.3.0
     ports:
@@ -39,6 +48,7 @@ services:
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - ./promtail-config.yml:/etc/promtail/config.yml:ro
     <<: *logging
+    <<: *resources
   prometheus:
     image: prom/prometheus:latest
     ports:
@@ -48,6 +58,7 @@ services:
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
     <<: *logging
+    <<: *resources
 
 networks:
   loki:
