@@ -10,6 +10,10 @@ Then, go to the "Explore" tab to see the logs.
 
 ## Best practices
 
+## General
+
+- Perform log rotation to limit disk space and memory usage.
+
 ### Loki
 
 - Prefer using static labels.

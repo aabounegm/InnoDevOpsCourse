@@ -5,6 +5,8 @@ x-logging-config: &logging
     driver: json-file
     options:
       tag: "{{.ImageName}}|{{.Name}}"
+    max-size: "100m"
+    max-file: 3
   networks:
     - loki
 
