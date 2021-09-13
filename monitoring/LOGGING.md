@@ -48,3 +48,5 @@ Then, go to the "Explore" tab to see the logs.
   ![](./images/Grafana%20logs.png)
 - Extra app logs:
   ![](./images/Vue%20app%20logs.png)
+- Prometheus targets page:
+  ![](./images/Prometheus%20targets.png)

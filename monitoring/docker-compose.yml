@@ -5,8 +5,8 @@ x-logging-config: &logging
     driver: json-file
     options:
       tag: "{{.ImageName}}|{{.Name}}"
-    max-size: "100m"
-    max-file: 3
+      max-size: "100m"
+      max-file: 3
   networks:
     - loki
 
@@ -38,6 +38,15 @@ services:
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - ./promtail-config.yml:/etc/promtail/config.yml:ro
+    <<: *logging
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus-config.yml:/etc/prometheus/prometheus.yml:ro
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
     <<: *logging
 
 networks:
