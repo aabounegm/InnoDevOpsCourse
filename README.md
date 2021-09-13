@@ -20,3 +20,7 @@ The other project is a Vue.js application created from template and resides in [
 The projects use [Docker](https://www.docker.com/) to run the application in a container.
 Each project has a Dockerfile that defines the image that will be used to run the application.
 Checkout the relevent folder for more details.
+
+## Monitoring
+
+The **Loki / Grafana / Promtail** stack is used for monitoring logs of the applications.
