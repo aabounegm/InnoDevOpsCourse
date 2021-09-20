@@ -1,5 +1,7 @@
 # Kubernetes
 
+## Command Outputs
+
 - Manually creating the deployment and service:
 ```
 PS C:\Users\aabou> kubectl create deployment my-app --image=aabounegm/devops_app_python
@@ -37,3 +39,11 @@ NAME                 TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)       
 service/app-python   LoadBalancer   10.104.19.136   <pending>     5000:31959/TCP   95s
 service/kubernetes   ClusterIP      10.96.0.1       <none>        443/TCP          31m
 ```
+
+## Terminology
+
+- **Ingress**: A Kubernetes object that describes how to route external traffic to a service. It can also perform health checks and load balancing.
+- **Ingress Controller**: A component that manages the creation and deletion of ingress resources.
+- **StatefulSet**: A Kubernetes object that manages the deployment and scaling of a group of pods and services. It is useful for running a group of pods that share common configuration or state.
+- **DaemonSet**: A resource that manages the deployment of one or more pods. It ensures that Nodes run a copy of a Pod(s), as well as garbage collection when the nodes are removed.
+- **PersistentVolume**: A resource (just like nodes) that has a lifecycle independent of that of the pods which is used to store persistent data.
