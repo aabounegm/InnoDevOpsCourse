@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-vue
+  labels:
+    app: app-vue
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app-vue
+  template:
+    metadata:
+      labels:
+        app: app-vue
+    spec:
+      containers:
+        - name: app-vue
+          image: aabounegm/devops_app_vue
+          ports:
+            - containerPort: 8080
