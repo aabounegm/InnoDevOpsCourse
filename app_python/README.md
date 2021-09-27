@@ -46,6 +46,11 @@ docker build -t python-app .
 docker run -d -p 5000:5000 python-app
 ```
 
+## Endpoints
+
+- `/`: Displays the current time in Moscow.
+- `/visits`: Displays the number of visits to the app.
+
 ## Testing
 
 The unit tests use the `pytest` library to define test cases.

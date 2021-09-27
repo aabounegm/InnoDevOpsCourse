@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  python_app:
+    build: .
+    ports:
+      - 80:5000
+    volumes:
+      - ./data/visits.json:/home/app/visits.json
