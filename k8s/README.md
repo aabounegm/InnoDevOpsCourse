@@ -83,3 +83,7 @@ NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)  
 service/app2-app-python   LoadBalancer   10.108.105.40   <pending>     5000:31043/TCP   3m50s
 service/kubernetes        ClusterIP      10.96.0.1       <none>        443/TCP          82m
 ```
+
+## Secrets and resource management
+
+See [11.md](./11.md) for more details.
