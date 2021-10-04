@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 moscow = timezone(timedelta(hours=3))
 
-FILE_NAME = "/home/app/visits.json"
+FILE_NAME = "/home/app/data/visits.json"
 
 
 @app.route("/")
@@ -18,6 +18,8 @@ def index():
     if os.path.exists(FILE_NAME):
         with open(FILE_NAME, "r") as f:
             visits = json.load(f)
+    else:
+        os.makedirs(os.path.dirname(FILE_NAME), exist_ok=True)
     with open(FILE_NAME, "w") as f:
         json.dump(visits + 1, f)
     time = datetime.now(moscow).strftime("%H:%M:%S - %d/%m/%Y")
