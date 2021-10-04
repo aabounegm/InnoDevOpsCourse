@@ -9,6 +9,7 @@ image:
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
+  dataDir: /home/app/data/
 
 secrets:
   name: my-api-key
@@ -42,6 +43,7 @@ securityContext:
   # runAsUser: 1000
 
 service:
+  name: app-python-service
   type: LoadBalancer
   port: 5000
 

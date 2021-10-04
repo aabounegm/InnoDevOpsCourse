@@ -1,10 +1,11 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "app_python.fullname" . }}
   labels:
     {{- include "app_python.labels" . | nindent 4 }}
 spec:
+  serviceName: {{ .Values.service.name }}
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
@@ -54,13 +55,8 @@ spec:
                   name: {{ .Values.secrets.name }}
                   key: key
           volumeMounts:
-            - name: configmap-volume
-              mountPath: /config.json
-              subPath: config.json
-      volumes:
-        - name: configmap-volume
-          configMap:
-            name: app-python-configmap
+            - name: visits
+              mountPath: {{ .Values.image.dataDir }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -73,3 +69,12 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  volumeClaimTemplates:
+    - metadata:
+        name: visits
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 256M
